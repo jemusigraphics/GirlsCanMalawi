@@ -52,6 +52,32 @@
         .mobile-menu {
             display: none;
         }
+        .hamburger {
+            width: 30px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #374151;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -77,9 +103,13 @@
         <nav class="container mx-auto relative">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex justify-between items-center w-full md:w-auto">
-                    <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-12 md:h-16"></a>
-                    <button class="mobile-menu md:hidden text-gray-800 text-2xl" onclick="toggleMenu()">
-                        <i class="fas fa-bars"></i>
+                    <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-16 md:h-24"></a>
+                    <button class="mobile-menu md:hidden" onclick="toggleMenu()">
+                        <div class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </button>
                 </div>
 
@@ -146,7 +176,9 @@
 
         function toggleMenu() {
             const menuItems = document.querySelector('.menu-items');
+            const hamburger = document.querySelector('.hamburger');
             menuItems.classList.toggle('active');
+            hamburger.classList.toggle('active');
         }
     </script>
 </body>
