@@ -49,22 +49,48 @@
             border-top-color: transparent;
             animation: loading 0.6s linear infinite;
         }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .menu-items.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body class="m-0 p-0 bg-white font-sans">
     <header class="bg-white p-4 shadow-md">
-        <nav class="container mx-auto">
-            <div class="flex justify-between items-center">
-                <div class="logo-container">
-                    <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-16"></a>
+        <nav class="container mx-auto relative">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex justify-between items-center w-full md:w-auto">
+                    <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-12 md:h-16"></a>
+                    <button class="mobile-menu md:hidden text-gray-800 text-2xl" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
 
-                <div class="flex-1 flex justify-between items-center">
-                    <div class="flex items-center space-x-4">
+                <div class="menu-items hidden md:flex flex-1 flex-col md:flex-row justify-between items-center w-full md:ml-8">
+                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
                         <a href="#home" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Home</a>
+                        <span class="hidden md:block text-gray-300">|</span>
                         <a href="#about" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">About</a>
+                        <span class="hidden md:block text-gray-300">|</span>
                         <div class="dropdown">
-                            <a href="#programs" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Programs ▼</a>
+                            <a href="#programs" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Programs</a>
                             <div class="dropdown-content">
                                 <a href="#program1" class="block px-4 py-2 text-gray-800 hover:bg-pink-100">Program 1</a>
                                 <a href="#program2" class="block px-4 py-2 text-gray-800 hover:bg-pink-100">Program 2</a>
@@ -73,8 +99,10 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4">
+                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+                        <span class="hidden md:block text-gray-300">|</span>
                         <a href="#volunteer" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Volunteer</a>
+                        <span class="hidden md:block text-gray-300">|</span>
                         <a href="#contact" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Contact</a>
                     </div>
                 </div>
@@ -115,6 +143,11 @@
                 }, 800);
             });
         });
+
+        function toggleMenu() {
+            const menuItems = document.querySelector('.menu-items');
+            menuItems.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
