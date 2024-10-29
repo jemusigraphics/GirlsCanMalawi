@@ -49,57 +49,6 @@
             border-top-color: transparent;
             animation: loading 0.6s linear infinite;
         }
-        .mobile-menu {
-            display: none;
-        }
-        .mobile-menu-button {
-            display: none;
-        }
-        @media (max-width: 768px) {
-            .desktop-menu {
-                display: none;
-            }
-            .mobile-menu-button {
-                display: block;
-            }
-            .mobile-menu {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                background-color: white;
-                padding: 1rem;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .mobile-menu.active {
-                display: block;
-            }
-            .mobile-menu a {
-                display: block;
-                padding: 0.75rem 1rem;
-                border-bottom: 1px solid #eee;
-            }
-            .mobile-menu .dropdown-content {
-                position: static;
-                box-shadow: none;
-                padding-left: 1rem;
-            }
-            .mobile-menu .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            .mobile-menu .dropdown.active .dropdown-content {
-                display: block;
-            }
-            .logo-container {
-                flex-shrink: 0;
-                width: auto;
-            }
-            .logo-container img {
-                max-height: 48px;
-                width: auto;
-            }
-        }
     </style>
 </head>
 <body class="m-0 p-0 bg-white font-sans">
@@ -109,14 +58,8 @@
                 <div class="logo-container">
                     <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-16"></a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-button text-gray-800 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
 
-                <!-- Desktop Menu -->
-                <div class="desktop-menu flex-1 flex justify-between items-center">
+                <div class="flex-1 flex justify-between items-center">
                     <div class="flex items-center space-x-4">
                         <a href="#home" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Home</a>
                         <a href="#about" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">About</a>
@@ -134,22 +77,6 @@
                         <a href="#volunteer" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Volunteer</a>
                         <a href="#contact" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Contact</a>
                     </div>
-                </div>
-
-                <!-- Mobile Menu -->
-                <div class="mobile-menu">
-                    <a href="#home" class="nav-link text-gray-800 hover:text-pink-400 transition-colors duration-300">Home</a>
-                    <a href="#about" class="nav-link text-gray-800 hover:text-pink-400 transition-colors duration-300">About</a>
-                    <div class="dropdown">
-                        <a href="#programs" class="nav-link text-gray-800 hover:text-pink-400 transition-colors duration-300">Programs ▼</a>
-                        <div class="dropdown-content">
-                            <a href="#program1" class="text-gray-800 hover:bg-pink-100">Program 1</a>
-                            <a href="#program2" class="text-gray-800 hover:bg-pink-100">Program 2</a>
-                            <a href="#program3" class="text-gray-800 hover:bg-pink-100">Program 3</a>
-                        </div>
-                    </div>
-                    <a href="#volunteer" class="nav-link text-gray-800 hover:text-pink-400 transition-colors duration-300">Volunteer</a>
-                    <a href="#contact" class="nav-link text-gray-800 hover:text-pink-400 transition-colors duration-300">Contact</a>
                 </div>
             </div>
         </nav>
@@ -186,22 +113,6 @@
                     window.location.href = this.getAttribute('href');
                     this.classList.remove('loading');
                 }, 800);
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileDropdowns = document.querySelectorAll('.mobile-menu .dropdown');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        mobileDropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
             });
         });
     </script>
