@@ -186,81 +186,121 @@
 
     <main>
         <!-- Content will go here -->
-         <section class="hero relative h-screen overflow-hidden mb-20">
-                     <div class="slider-container absolute inset-0">
-                         <div class="slides relative h-full">
-                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero1.jpg'); background-position: center center;">
-                                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                             </div>
-                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero2.jpg'); background-position: center center;">
-                                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                             </div>
-                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero3.jpg'); background-position: center center;">
-                                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+         <section class="hero-section relative h-[calc(100vh-12rem)] overflow-hidden">
+                     <div class="hero-slider absolute inset-0">
+                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero1.jpg');">
+                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+                         </div>
+                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero2.jpg');">
+                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+                         </div>
+                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero3.jpg');">
+                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+                         </div>
+                     </div>
+                     
+                     <div class="relative h-full flex items-center justify-center text-center text-white px-4">
+                         <div class="max-w-4xl mx-auto transform transition-all duration-1000 translate-y-0 opacity-100">
+                             <h1 class="text-4xl md:text-7xl font-bold mb-6 md:mb-8 animate-fadeIn leading-tight"><span class="text-pink-400">Girls</span> Can in Malawi</h1>
+                             <p class="text-lg md:text-2xl mb-8 md:mb-12 animate-slideUp max-w-2xl mx-auto leading-relaxed px-4">Creating opportunities and building brighter futures for the next generation of female leaders</p>
+                             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+                                 <a href="#learn-more" class="w-full sm:w-auto inline-block bg-pink-500 text-white px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 animate-bounce shadow-lg">
+                                     Learn More
+                                 </a>
+                                 <a href="donate.html" class="w-full sm:w-auto inline-block bg-transparent border-2 border-white text-white px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                     Donate Now
+                                 </a>
                              </div>
                          </div>
                      </div>
-                     <div class="relative h-full flex items-center justify-center text-center text-white px-4 pb-16">
-                         <div class="max-w-4xl mx-auto">
-                             <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeIn">Girls Can Malawi</h1>
-                             <p class="text-xl md:text-2xl mb-8 animate-slideUp">Empowering Girls Through Education</p>
-                             <a href="#learn-more" class="inline-block bg-pink-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-600 transition-colors duration-300 animate-bounce">Learn More</a>
-                         </div>
+
+                     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
+                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="0"></button>
+                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="1"></button>
+                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="2"></button>
                      </div>
                  </section>
          
                  <style>
-                     @keyframes slideShow {
-                         0% { opacity: 0; transform: scale(1.1) rotate(2deg); }
-                         5% { opacity: 1; transform: scale(1) rotate(0); }
-                         33% { opacity: 1; transform: scale(1) rotate(0); }
-                         38% { opacity: 0; transform: scale(0.9) rotate(-2deg); }
-                         100% { opacity: 0; transform: scale(0.9) rotate(-2deg); }
-                     }
-         
-                     .slide {
-                         animation: slideShow 15s infinite;
-                         background-size: cover !important;
-                         background-position: center center !important;
-                         transform-origin: center center;
-                     }
-         
-                     .slide:nth-child(1) { animation-delay: 0s; }
-                     .slide:nth-child(2) { animation-delay: 5s; }
-                     .slide:nth-child(3) { animation-delay: 10s; }
-         
                      @keyframes fadeIn {
                          from { opacity: 0; transform: translateY(-20px); }
                          to { opacity: 1; transform: translateY(0); }
                      }
          
                      @keyframes slideUp {
-                         from { opacity: 0; transform: translateY(20px); }
-                         to { opacity: 1; transform: translateY(0); }
+                         from { transform: translateY(40px); opacity: 0; }
+                         to { transform: translateY(0); opacity: 1; }
                      }
          
                      .animate-fadeIn {
-                         animation: fadeIn 1s ease-out forwards;
+                         animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
                      }
          
                      .animate-slideUp {
-                         animation: slideUp 1s ease-out 0.5s forwards;
+                         animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+                     }
+         
+                     .hero-slide {
+                         opacity: 0;
+                         transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+                     }
+         
+                     .hero-slide.active {
+                         opacity: 1;
                      }
 
-                     @media (max-width: 768px) {
-                         .slide {
-                             background-position: center center !important;
-                             background-size: cover !important;
-                         }
-                         .hero {
-                             min-height: calc(100vh - 80px);
+                     .slide-dot.active {
+                         background-color: white;
+                         transform: scale(1.2);
+                     }
+
+                     @media (max-width: 640px) {
+                         .hero-section {
+                             height: calc(100vh - 8rem);
                          }
                      }
                  </style>
          
-    </main>
+                 <script>
+                     document.addEventListener('DOMContentLoaded', function() {
+                         const slides = document.querySelectorAll('.hero-slide');
+                         const dots = document.querySelectorAll('.slide-dot');
+                         let currentSlide = 0;
+         
+                         function showSlide(index) {
+                             slides.forEach(slide => slide.classList.remove('active'));
+                             dots.forEach(dot => dot.classList.remove('active'));
+                             slides[index].classList.add('active');
+                             dots[index].classList.add('active');
+                         }
+         
+                         function nextSlide() {
+                             currentSlide = (currentSlide + 1) % slides.length;
+                             showSlide(currentSlide);
+                         }
+         
+                         // Add click events to dots
+                         dots.forEach((dot, index) => {
+                             dot.addEventListener('click', () => {
+                                 currentSlide = index;
+                                 showSlide(currentSlide);
+                             });
+                         });
+         
+                         // Show first slide immediately
+                         showSlide(0);
+         
+                         // Start slideshow
+                         const slideInterval = setInterval(nextSlide, 5000);
 
-    <footer class="bg-gray-800 text-white text-center p-8 fixed bottom-0 w-full">
+                         // Pause slideshow on hover
+                         const heroSection = document.querySelector('.hero-section');
+                         heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                         heroSection.addEventListener('mouseleave', () => setInterval(nextSlide, 5000));
+                     });
+                 </script>
+    </main>
+    <footer class="bg-gray-800 text-white text-center p-8 w-full">
         <div class="flex justify-center space-x-6 mb-4">
             <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
                 <i class="fab fa-facebook-f text-2xl"></i>
