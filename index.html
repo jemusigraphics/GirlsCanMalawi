@@ -189,19 +189,19 @@
          <section class="hero relative h-screen overflow-hidden">
                      <div class="slider-container absolute inset-0">
                          <div class="slides relative h-full">
-                             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('Hero1.jpg');">
+                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero1.jpg'); background-position: center center;">
                                  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                              </div>
-                             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('Hero2.jpg');">
+                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero2.jpg'); background-position: center center;">
                                  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                              </div>
-                             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('Hero3.jpg');">
+                             <div class="slide absolute inset-0 transform transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat" style="background-image: url('Hero3.jpg'); background-position: center center;">
                                  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                              </div>
                          </div>
                      </div>
                      <div class="relative h-full flex items-center justify-center text-center text-white px-4">
-                         <div class="max-w-4xl">
+                         <div class="max-w-4xl mx-auto">
                              <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeIn">Girls Can Malawi</h1>
                              <p class="text-xl md:text-2xl mb-8 animate-slideUp">Empowering Girls Through Education</p>
                              <a href="#learn-more" class="inline-block bg-pink-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-600 transition-colors duration-300 animate-bounce">Learn More</a>
@@ -211,12 +211,18 @@
          
                  <style>
                      @keyframes slideShow {
-                         0%, 100% { opacity: 0; }
-                         33.33%, 66.66% { opacity: 1; }
+                         0% { opacity: 0; transform: scale(1.1) rotate(2deg); }
+                         5% { opacity: 1; transform: scale(1) rotate(0); }
+                         33% { opacity: 1; transform: scale(1) rotate(0); }
+                         38% { opacity: 0; transform: scale(0.9) rotate(-2deg); }
+                         100% { opacity: 0; transform: scale(0.9) rotate(-2deg); }
                      }
          
                      .slide {
                          animation: slideShow 15s infinite;
+                         background-size: cover !important;
+                         background-position: center center !important;
+                         transform-origin: center center;
                      }
          
                      .slide:nth-child(1) { animation-delay: 0s; }
@@ -239,6 +245,13 @@
          
                      .animate-slideUp {
                          animation: slideUp 1s ease-out 0.5s forwards;
+                     }
+
+                     @media (max-width: 768px) {
+                         .slide {
+                             background-position: center center !important;
+                             background-size: cover !important;
+                         }
                      }
                  </style>
          
