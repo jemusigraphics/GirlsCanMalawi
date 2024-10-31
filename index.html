@@ -186,119 +186,68 @@
 
     <main>
         <!-- Content will go here -->
-         <section class="hero-section relative h-[calc(100vh-12rem)] overflow-hidden">
-                     <div class="hero-slider absolute inset-0">
-                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero1.jpg');">
-                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
-                         </div>
-                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero2.jpg');">
-                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
-                         </div>
-                         <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('Hero3.jpg');">
-                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
-                         </div>
-                     </div>
-                     
-                     <div class="relative h-full flex items-center justify-center text-center text-white px-4">
-                         <div class="max-w-4xl mx-auto transform transition-all duration-1000 translate-y-0 opacity-100">
-                             <h1 class="text-4xl md:text-7xl font-bold mb-6 md:mb-8 animate-fadeIn leading-tight"><span class="text-pink-400">Girls</span> Can in Malawi</h1>
-                             <p class="text-lg md:text-2xl mb-8 md:mb-12 animate-slideUp max-w-2xl mx-auto leading-relaxed px-4">Creating opportunities and building brighter futures for the next generation of female leaders</p>
-                             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-                                 <a href="#learn-more" class="w-full sm:w-auto inline-block bg-pink-500 text-white px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 animate-bounce shadow-lg">
-                                     Learn More
-                                 </a>
-                                 <a href="donate.html" class="w-full sm:w-auto inline-block bg-transparent border-2 border-white text-white px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                     Donate Now
-                                 </a>
-                             </div>
-                         </div>
-                     </div>
-
-                     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
-                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="0"></button>
-                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="1"></button>
-                         <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300 slide-dot" data-index="2"></button>
-                     </div>
-                 </section>
-         
-                 <style>
-                     @keyframes fadeIn {
-                         from { opacity: 0; transform: translateY(-20px); }
-                         to { opacity: 1; transform: translateY(0); }
-                     }
-         
-                     @keyframes slideUp {
-                         from { transform: translateY(40px); opacity: 0; }
-                         to { transform: translateY(0); opacity: 1; }
-                     }
-         
-                     .animate-fadeIn {
-                         animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-                     }
-         
-                     .animate-slideUp {
-                         animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
-                     }
-         
-                     .hero-slide {
-                         opacity: 0;
-                         transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-                     }
-         
-                     .hero-slide.active {
-                         opacity: 1;
-                     }
-
-                     .slide-dot.active {
-                         background-color: white;
-                         transform: scale(1.2);
-                     }
-
-                     @media (max-width: 640px) {
-                         .hero-section {
-                             height: calc(100vh - 8rem);
-                         }
-                     }
-                 </style>
-         
-                 <script>
-                     document.addEventListener('DOMContentLoaded', function() {
-                         const slides = document.querySelectorAll('.hero-slide');
-                         const dots = document.querySelectorAll('.slide-dot');
-                         let currentSlide = 0;
-         
-                         function showSlide(index) {
-                             slides.forEach(slide => slide.classList.remove('active'));
-                             dots.forEach(dot => dot.classList.remove('active'));
-                             slides[index].classList.add('active');
-                             dots[index].classList.add('active');
-                         }
-         
-                         function nextSlide() {
-                             currentSlide = (currentSlide + 1) % slides.length;
-                             showSlide(currentSlide);
-                         }
-         
-                         // Add click events to dots
-                         dots.forEach((dot, index) => {
-                             dot.addEventListener('click', () => {
-                                 currentSlide = index;
-                                 showSlide(currentSlide);
-                             });
-                         });
-         
-                         // Show first slide immediately
-                         showSlide(0);
-         
-                         // Start slideshow
-                         const slideInterval = setInterval(nextSlide, 5000);
-
-                         // Pause slideshow on hover
-                         const heroSection = document.querySelector('.hero-section');
-                         heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
-                         heroSection.addEventListener('mouseleave', () => setInterval(nextSlide, 5000));
-                     });
-                 </script>
+         <section class="relative min-h-screen bg-gradient-to-br from-pink-900 via-pink-800 to-gray-900 overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0wIDYwTDYwIDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2EpIi8+PC9zdmc+')] opacity-20"></div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 py-32 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-16">
+                    <div class="w-full md:w-1/2 space-y-8">
+                        <div class="relative">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-gray-700 rounded-lg blur opacity-75 animate-pulse"></div>
+                            <h1 class="relative bg-black/50 backdrop-blur-sm p-6 rounded-lg">
+                                <span class="block text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-gray-400 mb-4">Girls Can Malawi</span>
+                                <span class="block text-3xl md:text-4xl font-bold text-white">Empowering Dreams</span>
+                            </h1>
+                        </div>
+                        
+                        <p class="text-gray-300 text-lg md:text-xl backdrop-blur-sm bg-black/30 p-6 rounded-lg">
+                            Transforming lives through innovative education programs and cutting-edge initiatives. Join us in building a brighter future for girls in Malawi.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#programs" class="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-gray-700 rounded-full overflow-hidden">
+                                <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                                <span class="relative font-bold text-white">Discover Programs</span>
+                            </a>
+                            <a href="#volunteer" class="group relative px-8 py-4 bg-transparent border-2 border-white/50 rounded-full backdrop-blur-sm hover:border-white/100">
+                                <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                                <span class="relative font-bold text-white">Get Involved</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2">
+                        <div class="relative group">
+                            <div class="absolute -inset-4 bg-gradient-to-r from-pink-500 to-gray-700 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="relative">
+                                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
+                                    <img src="Hero1.jpg" alt="Girls Can Malawi" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="absolute -bottom-6 right-6 bg-black/80 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="flex space-x-1">
+                                            <div class="w-2 h-8 bg-pink-400 rounded-full animate-pulse"></div>
+                                            <div class="w-2 h-8 bg-gray-400 rounded-full animate-pulse delay-100"></div>
+                                            <div class="w-2 h-8 bg-pink-400 rounded-full animate-pulse delay-200"></div>
+                                        </div>
+                                        <span class="text-white font-medium">Impacting 1000+ Lives</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg class="w-full h-24 text-white" viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 116L60 106.3C120 96.7 240 77.3 360 67.8C480 58.3 600 58.7 720 63.3C840 68 960 77 1080 82.2C1200 87.3 1320 87.7 1380 87.8L1440 88V116H1380C1320 116 1200 116 1080 116C960 116 840 116 720 116C600 116 480 116 360 116C240 116 120 116 60 116H0Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </section>
     </main>
     <footer class="bg-gray-800 text-white text-center p-8 w-full">
         <div class="flex justify-center space-x-6 mb-4">
@@ -315,7 +264,7 @@
                 <i class="fab fa-linkedin-in text-2xl"></i>
             </a>
         </div>
-        <p>© <script>document.write(new Date().getFullYear())</script> GirlsCanMalawi. All rights reserved.</p>
+        <p>© <script>document.write(new Date().getFullYear())</script> Girls Can Malawi. All rights reserved.</p>
     </footer>
 
     <script>
