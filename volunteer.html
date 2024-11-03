@@ -186,9 +186,85 @@
 
     <main>
         <!-- Content will go here -->
+         <section class="volunteer-section py-16 scroll-smooth">
+                     <div class="container mx-auto px-4">
+                         <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Volunteer with Us</h1>
+                         <h2 class="text-2xl text-center mb-12 text-pink-400">Be a Part of the Change. Empower Girls in Malawi.</h2>
+         
+                         <div class="max-w-4xl mx-auto mb-12 transform transition-all duration-1000 translate-y-0 opacity-100" data-aos="fade-up">
+                             <p class="text-gray-700 mb-6">At Girls Can Malawi, we believe that empowering girls through education is essential for a brighter and more equitable future. Our mission is to provide girls with the tools, knowledge, and support they need to overcome social, cultural, and economic barriers. As a volunteer, you can play a vital role in helping us make a lasting impact.</p>
+         
+                             <div class="bg-pink-50 p-8 rounded-lg mb-12">
+                                 <h3 class="text-2xl font-semibold mb-6 text-gray-800">Why Volunteer with Girls Can Malawi?</h3>
+                                 <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                     <li>Promote Gender Equality: Help us in our journey to close the gender gap and create equal opportunities for girls.</li>
+                                     <li>Support Education Initiatives: Contribute to sending girls back to school and providing necessary school supplies.</li>
+                                     <li>Encourage Menstrual Hygiene: Participate in our programs to educate girls on menstrual health, distribute reusable sanitary products, and combat stigma.</li>
+                                     <li>Mentor Young Girls: Become a role model by guiding girls in areas like education, health, leadership, and entrepreneurship.</li>
+                                 </ul>
+                             </div>
+         
+                             <div class="mb-12">
+                                 <h3 class="text-2xl font-semibold mb-6 text-gray-800">Volunteer Roles</h3>
+                                 <div class="grid md:grid-cols-2 gap-6">
+                                     <div class="bg-white p-6 rounded-lg shadow-md">
+                                         <h4 class="font-semibold mb-3 text-pink-400">Education Support</h4>
+                                         <p class="text-gray-700">Assist in our initiatives to encourage girls to return to school by helping distribute school essentials like uniforms, notebooks, and pens.</p>
+                                     </div>
+                                     <div class="bg-white p-6 rounded-lg shadow-md">
+                                         <h4 class="font-semibold mb-3 text-pink-400">Menstrual Hygiene Advocacy</h4>
+                                         <p class="text-gray-700">Work with us in raising awareness on menstrual health, teaching girls to make reusable pads, and supporting hygiene education.</p>
+                                     </div>
+                                     <div class="bg-white p-6 rounded-lg shadow-md">
+                                         <h4 class="font-semibold mb-3 text-pink-400">Mentorship Programs</h4>
+                                         <p class="text-gray-700">Provide mentorship to young girls, guiding them in their educational and career paths, and helping them build confidence and leadership skills.</p>
+                                     </div>
+                                     <div class="bg-white p-6 rounded-lg shadow-md">
+                                         <h4 class="font-semibold mb-3 text-pink-400">Community Outreach</h4>
+                                         <p class="text-gray-700">Engage with local communities to foster awareness and support for girls' education and empowerment, helping to shift cultural perceptions.</p>
+                                     </div>
+                                 </div>
+                             </div>
+         
+                             <div class="bg-gray-50 p-8 rounded-lg mb-12">
+                                 <h3 class="text-2xl font-semibold mb-6 text-gray-800">How to Get Involved</h3>
+                                 <p class="text-gray-700 mb-6">If you are passionate about making a difference and want to support girls in achieving their dreams, join us! Volunteers are welcome from all backgrounds. Together, we can empower the next generation of Malawian girls.</p>
+                                 
+                                 <form class="space-y-6">
+                                     <div class="grid md:grid-cols-2 gap-6">
+                                         <div>
+                                             <label class="block text-gray-700 mb-2" for="name">Full Name</label>
+                                             <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-pink-400" required>
+                                         </div>
+                                         <div>
+                                             <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                             <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-pink-400" required>
+                                         </div>
+                                     </div>
+                                     <div>
+                                         <label class="block text-gray-700 mb-2" for="role">Preferred Volunteer Role</label>
+                                         <select id="role" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-pink-400" required>
+                                             <option value="">Select a role</option>
+                                             <option value="education">Education Support</option>
+                                             <option value="hygiene">Menstrual Hygiene Advocacy</option>
+                                             <option value="mentorship">Mentorship Programs</option>
+                                             <option value="outreach">Community Outreach</option>
+                                         </select>
+                                     </div>
+                                     <div>
+                                         <label class="block text-gray-700 mb-2" for="message">Why do you want to volunteer?</label>
+                                         <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-pink-400" required></textarea>
+                                     </div>
+                                     <button type="submit" class="bg-pink-400 text-white px-8 py-3 rounded-lg hover:bg-pink-500 transition-colors duration-300">Submit Application</button>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </section>
+         
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-8 fixed bottom-0 w-full">
+    <footer class="bg-gray-800 text-white text-center p-8 w-full">
         <div class="flex justify-center space-x-6 mb-4">
             <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
                 <i class="fab fa-facebook-f text-2xl"></i>
@@ -230,6 +306,5 @@
             menuItems.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
-    </script>
-</body>
+    </script></body>
 </html>

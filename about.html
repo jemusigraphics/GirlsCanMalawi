@@ -185,10 +185,123 @@
     </div>
 
     <main>
-        <!-- Content will go here -->
-    </main>
+      <!-- About Us Section -->
+      <section class="container mx-auto px-8 md:px-16 py-12" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto scroll-reveal">
+            <h1 class="text-5xl font-bold mb-8 text-pink-500 text-center">About Us</h1>
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                    Girls can Malawi is an initiative that aims to empower girls through access to quality education. We believe that through education, girls can contribute significantly to the nation's development, girls can end the cycle of poverty, girls can have better health outcomes and gender equality.
+                </p>
+                <p class="text-gray-700 leading-relaxed text-lg">
+                    For us, investing in girl's education is not just a matter of social justice, it is a strategic investment in future of Malawi.
+                </p>
+            </div>
+        </div>
+      </section>
 
-    <footer class="bg-gray-800 text-white text-center p-8 fixed bottom-0 w-full">
+      <!-- Quote Section -->
+      <section class="bg-pink-50 py-16" data-aos="fade-up">
+        <div class="container mx-auto px-8 md:px-16">
+            <div class="max-w-4xl mx-auto scroll-reveal">
+                <blockquote class="border-l-4 border-pink-500 pl-6 italic text-2xl font-light mb-8 text-gray-800">
+                    "WHY GIRLS: Girls have historically experienced prejudice and had fewer chances in a variety of fields, including healthcare, work, and education."
+                </blockquote>
+                <p class="text-right text-gray-700 text-lg">One of the most vulnerable groups in society is girls. Making girls a priority is a calculated attempt to address and correct these differences, advancing gender parity and empowering girls, contesting preconceptions and traditional gender roles.</p>
+            </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section class="container mx-auto px-8 md:px-16 py-16" data-aos="fade-up">
+        <h2 class="text-5xl font-bold mb-12 text-pink-500 text-center">Gallery</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 scroll-reveal">
+            <div class="gallery-item">
+                <img src="Hero1.jpg" alt="Girls Education" class="w-full h-[300px] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all" onclick="openModal(this.src)">
+                <a href="Hero1.jpg" download class="block text-center mt-2 text-pink-500 hover:text-pink-600">Download</a>
+            </div>
+            <div class="gallery-item">
+                <img src="Hero2.jpg" alt="Empowerment" class="w-full h-[300px] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all" onclick="openModal(this.src)">
+                <a href="Hero2.jpg" download class="block text-center mt-2 text-pink-500 hover:text-pink-600">Download</a>
+            </div>
+            <div class="gallery-item">
+                <img src="Hero3.jpg" alt="Community Impact" class="w-full h-[300px] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all" onclick="openModal(this.src)">
+                <a href="Hero3.jpg" download class="block text-center mt-2 text-pink-500 hover:text-pink-600">Download</a>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <a href="https://drive.google.com/drive/folders/your-folder-id" target="_blank" class="text-pink-500 hover:text-pink-600 font-semibold">View More Images</a>
+        </div>
+  
+        <!-- Modal -->
+        <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
+            <div class="max-w-4xl mx-auto p-4">
+                <img id="modalImage" src="" alt="" class="max-h-[80vh] max-w-full">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">×</button>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-12 scroll-reveal">
+            <a href="contact.html" class="inline-block bg-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-600 transition-colors duration-300">Join Our Mission Today</a>
+        </div>
+      </section>
+
+      <!-- JavaScript for Gallery and Animations -->
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false
+        });
+
+        // Modal functionality
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.remove('hidden');
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+        }
+
+        // Scroll reveal animation
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-reveal-visible');
+                } else {
+                    entry.target.classList.remove('scroll-reveal-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        scrollRevealElements.forEach(element => {
+            scrollObserver.observe(element);
+        });
+      </script>
+
+      <style>
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+      </style>
+    </main>
+    <footer class="bg-gray-800 text-white text-center p-8 w-full">
         <div class="flex justify-center space-x-6 mb-4">
             <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
                 <i class="fab fa-facebook-f text-2xl"></i>

@@ -186,70 +186,9 @@
 
     <main>
         <!-- Content will go here -->
-         <section class="relative min-h-screen bg-gradient-to-br from-pink-900 via-pink-800 to-gray-900 overflow-hidden">
-            <div class="absolute inset-0">
-                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0wIDYwTDYwIDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2EpIi8+PC9zdmc+')] opacity-20"></div>
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            
-            <div class="container mx-auto px-4 py-32 relative z-10">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-16">
-                    <div class="w-full md:w-1/2 space-y-8">
-                        <div class="relative">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-gray-700 rounded-lg blur opacity-75 animate-pulse"></div>
-                            <h1 class="relative bg-black/50 backdrop-blur-sm p-6 rounded-lg">
-                                <span class="block text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-gray-400 mb-4">Girls Can Malawi</span>
-                                <span class="block text-3xl md:text-4xl font-bold text-white">Empowering Dreams</span>
-                            </h1>
-                        </div>
-                        
-                        <p class="text-gray-300 text-lg md:text-xl backdrop-blur-sm bg-black/30 p-6 rounded-lg">
-                            Transforming lives through innovative education programs and cutting-edge initiatives. Join us in building a brighter future for girls in Malawi.
-                        </p>
-                        
-                        <div class="flex flex-wrap gap-6">
-                            <a href="#programs" class="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-gray-700 rounded-full overflow-hidden">
-                                <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                                <span class="relative font-bold text-white">Discover Programs</span>
-                            </a>
-                            <a href="#volunteer" class="group relative px-8 py-4 bg-transparent border-2 border-white/50 rounded-full backdrop-blur-sm hover:border-white/100">
-                                <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                                <span class="relative font-bold text-white">Get Involved</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full md:w-1/2">
-                        <div class="relative group">
-                            <div class="absolute -inset-4 bg-gradient-to-r from-pink-500 to-gray-700 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div class="relative">
-                                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
-                                    <img src="Hero1.jpg" alt="Girls Can Malawi" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                                </div>
-                                <div class="absolute -bottom-6 right-6 bg-black/80 backdrop-blur-md p-4 rounded-xl border border-white/10">
-                                    <div class="flex items-center space-x-3">
-                                        <div class="flex space-x-1">
-                                            <div class="w-2 h-8 bg-pink-400 rounded-full animate-pulse"></div>
-                                            <div class="w-2 h-8 bg-gray-400 rounded-full animate-pulse delay-100"></div>
-                                            <div class="w-2 h-8 bg-pink-400 rounded-full animate-pulse delay-200"></div>
-                                        </div>
-                                        <span class="text-white font-medium">Impacting 1000+ Lives</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="absolute bottom-0 left-0 right-0">
-                <svg class="w-full h-24 text-white" viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 116L60 106.3C120 96.7 240 77.3 360 67.8C480 58.3 600 58.7 720 63.3C840 68 960 77 1080 82.2C1200 87.3 1320 87.7 1380 87.8L1440 88V116H1380C1320 116 1200 116 1080 116C960 116 840 116 720 116C600 116 480 116 360 116C240 116 120 116 60 116H0Z" fill="currentColor"/>
-                </svg>
-            </div>
-        </section>
     </main>
-    <footer class="bg-gray-800 text-white text-center p-8 w-full">
+
+    <footer class="bg-gray-800 text-white text-center p-8 fixed bottom-0 w-full">
         <div class="flex justify-center space-x-6 mb-4">
             <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
                 <i class="fab fa-facebook-f text-2xl"></i>
@@ -264,7 +203,7 @@
                 <i class="fab fa-linkedin-in text-2xl"></i>
             </a>
         </div>
-        <p>© <script>document.write(new Date().getFullYear())</script> Girls Can Malawi. All rights reserved.</p>
+        <p>© <script>document.write(new Date().getFullYear())</script> GirlsCanMalawi. All rights reserved.</p>
     </footer>
 
     <script>
