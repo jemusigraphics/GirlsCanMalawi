@@ -1,235 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GirlsCan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .nav-link {
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .nav-link:active {
-            transform: translateY(2px);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes loading {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin-left: 8px;
-            border: 2px solid #F472B6;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: loading 0.6s linear infinite;
-        }
-        .mobile-menu {
-            display: none;
-        }
-        .hamburger {
-            width: 30px;
-            height: 24px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #374151;
-            border-radius: 3px;
-            transition: all 0.3s ease-in-out;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
-        }
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        #loader img {
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            .menu-items {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                padding: 1rem;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            .menu-items.active {
-                display: flex;
-            }
-            .menu-separator {
-                width: 100%;
-                height: 1px;
-                background-color: #E5E7EB;
-                margin: 0.5rem 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girls Can Malawi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Sacramento', cursive; /* Use Sacramento font */
+    }
+    .counter {
+      font-size: 2rem;
+      color: #D5006D; /* Pink color */
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: #02172c; /* Dark blue color */
+    }
+    html {
+      scroll-behavior: smooth; /* Enable smooth scrolling */
+    }
+    .success-stories, .hero {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+    .success-stories {
+      background-image: url('slider3.jpg'); /* Add your success stories background image */
+      background-color: hsla(800, 50%, 0%, 0.829); /* Dark overlay */
+    }
+    .success-stories::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: 1;
+    }
+    .hero {
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for hero section */
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: 1;
+    }
+    .success-stories h3, .success-stories h2, .success-stories .counter,
+    .hero h2, .hero p {
+      position: relative;
+      z-index: 2;
+      color: white; /* Set text color to white */
+      animation: fadeIn 1s ease-in-out; /* Animation for hero text */
+    }
+    .hero h2 {
+      color: white; /* Make heading white */
+    }
+    .hero p {
+      color: white; /* Make paragraph text white */
+      font-family: 'Sacramento', cursive; /* Apply Sacramento font */
+    }
+    .logo {
+      transform: scale(1.5); /* Zoom the logo */
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .about-images {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .about-images img {
+      width: 100%; /* Make image responsive */
+      max-width: 400px; /* Set max width for larger image */
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .about-images img:hover {
+      transform: scale(1.05);
+    }
+    .accordion {
+      margin-top: 1rem;
+      border: 1px solid #D5006D;
+      border-radius: 8px;
+      background-color: #D5006D; /* Pink background for accordion */
+    }
+    .accordion-item {
+      border-bottom: 1px solid #D5006D;
+    }
+    .accordion-header {
+      padding: 1rem;
+      cursor: pointer;
+      background-color: transparent; /* Make header background transparent */
+      color: white; /* White text for "Why Girls?" */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+    }
+    .accordion-header:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+    }
+    .accordion-content {
+      padding: 1rem;
+      display: none;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      animation: bounce 0.5s; /* Custom bounce animation */
+    }
+    .accordion-content.active {
+      display: block;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    .icon {
+      transition: transform 0.3s;
+    }
+    .icon.collapsed {
+      transform: rotate(0deg);
+    }
+    .icon.expanded {
+      transform: rotate(180deg);
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center; /* Center the grid */
+    }
+    .program-card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+      margin: 0 auto; /* Center the program card */
+    }
+    .program-card:hover {
+      transform: scale(1.05);
+    }
+    .program-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .about-images {
+        flex-direction: column; /* Stack images on smaller screens */
+      }
+      .programs-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+      }
+      .accordion-header {
+        flex-direction: column; /* Stack header content on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+      }
+    }
+  </style>
 </head>
-<body class="m-0 p-0 bg-white font-sans">
-    <div id="loader">
-        <img src="logo.png" alt="GirlsCan Logo" class="h-32">
+<body class="font-sans antialiased text-gray-900">
+
+  <header class="bg-[#02172c] text-white">
+    <div class="container mx-auto flex items-center justify-between p-6">
+      <img src="logo.png" alt="Girls Can Malawi Logo" class="h-10 mr-4 logo">
+      <h1 class="text-2xl font-bold" style="font-family: 'Sacramento', cursive;">Girls Can Malawi</h1>
+      <nav class="space-x-4">
+        <a href="#hero" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Home</a>
+        <a href="#about" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">About</a>
+        <a href="#programs" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Programs</a>
+        <a href="#media" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Media</a>
+        <a href="#contact" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <header class="bg-white p-4 shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto relative">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex justify-between items-center w-full md:w-auto">
-                    <a href="index.html"><img src="logo.png" alt="GirlsCan Logo" class="h-16 md:h-24"></a>
-                    <button class="mobile-menu md:hidden" onclick="toggleMenu()">
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="menu-items hidden md:flex flex-1 flex-col md:flex-row justify-between items-center w-full md:ml-8">
-                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-                        <a href="index.html" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Home</a>
-                        <div class="menu-separator md:hidden"></div>
-                        <span class="hidden md:block text-gray-300">|</span>
-                        <a href="about.html" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">About</a>
-                        <div class="menu-separator md:hidden"></div>
-                        <span class="hidden md:block text-gray-300">|</span>
-                        <div class="dropdown">
-                            <a href="programs.html" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Programs</a>
-                            <div class="dropdown-content">
-                                <a href="Menstrual Hygiene" class="block px-4 py-2 text-gray-800 hover:bg-pink-100">Program 1</a>
-                                <a href="Girls Back to School" class="block px-4 py-2 text-gray-800 hover:bg-pink-100">Program 2</a>
-                                <a href="Mentorship" class="block px-4 py-2 text-gray-800 hover:bg-pink-100">Program 3</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-                        <div class="menu-separator md:hidden"></div>
-                        <span class="hidden md:block text-gray-300">|</span>
-                        <a href="volunteer.html" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Volunteer</a>
-                        <div class="menu-separator md:hidden"></div>
-                        <span class="hidden md:block text-gray-300">|</span>
-                        <a href="contact.html" class="nav-link text-gray-800 no-underline px-6 py-3 hover:text-pink-400 transition-colors duration-300">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="bg-gray-100 py-2">
-        <div class="container mx-auto px-4">
-            <div class="text-sm text-gray-600">
-                <a href="index.html" class="hover:text-pink-400">Home</a> / <span class="text-gray-800">Home</span>
-            </div>
-        </div>
+  <section id="hero" class="hero bg-cover bg-center h-screen" style="background-image: url('Hero1.jpg');">
+    <div class="container mx-auto text-center h-full flex flex-col justify-center items-center text-white">
+      <h2 class="text-5xl font-bold">Empowering Girls Through Education</h2>
+      <p class="mt-4 text-lg" style="font-family: 'Sacramento', cursive;">
+        Girls Can Malawi empowers girls to break barriers and create brighter futures through education.
+      </p>
     </div>
+  </section>
 
-    <main>
-        <!-- Content will go here -->
-    </main>
-
-    <footer class="bg-gray-800 text-white text-center p-8 fixed bottom-0 w-full">
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
-                <i class="fab fa-facebook-f text-2xl"></i>
-            </a>
-            <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
-                <i class="fab fa-twitter text-2xl"></i>
-            </a>
-            <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
-                <i class="fab fa-instagram text-2xl"></i>
-            </a>
-            <a href="#" class="text-white hover:text-pink-400 transition-colors duration-300">
-                <i class="fab fa-linkedin-in text-2xl"></i>
-            </a>
+  <section id="about" class="py-16 bg-gray-50">
+    <div class="container mx-auto flex">
+      <div class="flex-1 text-center">
+        <h3 class="text-xl font-bold text-pink-500" style="font-family: 'Sacramento', cursive;">About Us</h3>
+        <h2 class="text-4xl font-bold mt-2" style="font-family: 'Sacramento', cursive;">Who We Are</h2>
+        <p class="mt-4 text-gray-600" style="font-family: 'Sacramento', cursive;">
+            Girls can Malawi is an initiative that aims to empower girls through access to quality education. we believe that through education, girls can contribute significantly to the nation’s development, girls can end the cycle of poverty, girls can have better health outcomes and gender equality. For us, investing in girl’s education is not just a matter of social justice, it is a strategic investment in future of Malawi.
+        </p>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Why Girls?</span>
+              <span class="icon collapsed">+</span>
+            </div>
+            <div class="accordion-content">
+              <p class="mt-4 text-white" style="font-family: 'Sacramento', cursive;">
+                We believe that through education, girls can contribute significantly to the nation’s development, end the cycle of poverty, have better health outcomes, and achieve gender equality. Investing in girls' education is not just a matter of social justice; it is a strategic investment in the future of Malawi. 
+              </p>
+            </div>
+          </div>
         </div>
-        <p>© <script>document.write(new Date().getFullYear())</script> GirlsCanMalawi. All rights reserved.</p>
-    </footer>
+      </div>
+      <div class="flex-1 about-images">
+        <img src="slider1.jpg" alt="About Image">
+      </div>
+    </div>
+  </section>
 
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loader').style.display = 'none';
-            }, 2000);
-        });
+  <section id="programs" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <h3 class="text-xl font-bold text-pink-500" style="font-family: 'Sacramento', cursive;">Our Programs</h3>
+      <h2 class="text-4xl font-bold mt-2" style="font-family: 'Sacramento', cursive;">How We Empower Girls</h2>
+      
+      <!-- Programs Grid with Flexbox for Centering -->
+      <div class="flex justify-center gap-8 mt-8">
+        
+        <!-- Program Card 1 -->
+        <div class="program-card max-w-xs text-center p-6 shadow-lg rounded-lg hover:bg-pink-100 transition-all">
+          <div class="program-icon text-4xl mb-4 text-pink-500">
+            <!-- Use a modern icon, e.g., from FontAwesome or custom SVG -->
+            <i class="fa fa-tint"></i> <!-- Example: FontAwesome Icon -->
+          </div>
+          <h4 class="text-lg font-bold">Menstrual Hygiene</h4>
+          <p class="mt-2 text-gray-600" style="font-family: 'Sacramento', cursive;">
+            We provide menstrual health education and promote awareness to combat myths and improve hygiene practices.
+          </p>
+          <a href="#program1" class="text-pink-500 underline mt-4 inline-block">Read More</a>
+        </div>
+  
+        <!-- Program Card 2 -->
+        <div class="program-card max-w-xs text-center p-6 shadow-lg rounded-lg hover:bg-pink-100 transition-all">
+          <div class="program-icon text-4xl mb-4 text-pink-500">
+            <i class="fa fa-book"></i> <!-- Example: FontAwesome Icon -->
+          </div>
+          <h4 class="text-lg font-bold">Sending Girls Back to School</h4>
+          <p class="mt-2 text-gray-600" style="font-family: 'Sacramento', cursive;">
+            Supporting girls with school supplies encourages their return to school, promoting equality and fostering community development.
+          </p>
+          <a href="#program2" class="text-pink-500 underline mt-4 inline-block">Read More</a>
+        </div>
+  
+        <!-- Program Card 3 -->
+        <div class="program-card max-w-xs text-center p-6 shadow-lg rounded-lg hover:bg-pink-100 transition-all">
+          <div class="program-icon text-4xl mb-4 text-pink-500">
+            <i class="fa fa-users"></i> <!-- Example: FontAwesome Icon -->
+          </div>
+          <h4 class="text-lg font-bold">Mentoring</h4>
+          <p class="mt-2 text-gray-600" style="font-family: 'Sacramento', cursive;">
+            Through structured mentorship, we guide girls in education, leadership, and entrepreneurship, inspiring them to achieve their goals.
+          </p>
+          <a href="#program3" class="text-pink-500 underline mt-4 inline-block">Read More</a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <section id="media" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center">
+      <h3 class="text-xl font-bold text-pink-500" style="font-family: 'Sacramento', cursive;">Media Coverage</h3>
+      <h2 class="text-4xl font-bold mt-2" style="font-family: 'Sacramento', cursive;">In the News</h2>
+      <p class="mt-4 text-gray-600" style="font-family: 'Sacramento', cursive;">
+        Check out our latest media coverage and stories that highlight our mission and impact.
+      </p>
+      <div class="mt-6">
+        <a href="#" class="bg-pink-500 text-white px-4 py-2 rounded">Gallery</a>
+        <a href="#" class="bg-pink-500 text-white px-4 py-2 rounded ml-4">Buy a T-Shirt</a>
+        <a href="#" class="bg-pink-500 text-white px-4 py-2 rounded ml-4">Add Post</a>
+      </div>
+    </div>
+  </section>
 
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                this.classList.add('loading');
-                setTimeout(() => {
-                    window.location.href = this.getAttribute('href');
-                    this.classList.remove('loading');
-                }, 800);
-            });
-        });
+  <section class="py-16 success-stories">
+    <div class="container mx-auto text-center">
+      <h3 class="text-xl font-bold text-pink-500" style="font-family: 'Sacramento', cursive;">Success Stories</h3>
+      <h2 class="text-4xl font-bold mt-2" style="font-family: 'Sacramento', cursive;">Girls Reached</h2>
+      <div class="mt-6">
+        <span class="counter font-bold text-pink-500" id="counter">0</span>
+      </div>
+    </div>
+  </section>
 
-        function toggleMenu() {
-            const menuItems = document.querySelector('.menu-items');
-            const hamburger = document.querySelector('.hamburger');
-            menuItems.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        }
-    </script>
+  <section id="contact" class="bg-pink-500 text-white py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold" style="font-family: 'Sacramento', cursive;">Where We're Based</h2>
+      <p class="mt-4" style="font-family: 'Sacramento', cursive;">
+        Girls Can Malawi is based in Mzuzu, Malawi. Contact us at +265 996 632 114 or email us at girlscanmalawi@gmail.com.
+      </p>
+    </div>
+  </section>
+
+  <footer class="bg-[#02172c] text-white py-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div>
+        <h3 class="text-xl font-bold" style="font-family: 'Sacramento', cursive;">Girls Can Malawi</h3>
+        <p>Mzuzu, Malawi</p>
+        <p>+265 996 632 114</p>
+        <p>girlscanmalawi@gmail.com</p>
+      </div>
+      <div class="space-x-4">
+        <a href="#about" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">About Us</a>
+        <a href="#programs" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Our Programs</a>
+        <a href="#contact" class="hover:text-pink-500" style="font-family: 'Sacramento', cursive;">Contact</a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 mt-4">
+      © <span id="current-year"></span> Girls Can Malawi. All Rights Reserved.
+    </div>
+    <div class="text-center mt-4">
+      <a href="#" class="text-white hover:text-pink-500">Facebook</a>
+      <a href="#" class="text-white hover:text-pink-500 ml-4">Twitter</a>
+      <a href="#" class="text-white hover:text-pink-500 ml-4">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    let count = 0;
+    const target = 5000; // Set your target number of girls reached
+    const counter = document.getElementById('counter');
+
+    const updateCounter = () => {
+      if (count < target) {
+        count++;
+        counter.innerText = count;
+        setTimeout(updateCounter, 50); // Adjust speed of counting
+      }
+    };
+
+    updateCounter();
+
+    // Dynamic year in footer
+    document.getElementById('current-year').innerText = new Date().getFullYear();
+
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.icon');
+      content.classList.toggle('active');
+      const isActive = content.classList.contains('active');
+      content.style.maxHeight = isActive ? content.scrollHeight + "px" : 0;
+      icon.textContent = isActive ? '–' : '+';
+      icon.classList.toggle('expanded', isActive);
+      icon.classList.toggle('collapsed', !isActive);
+    }
+  </script>
 </body>
 </html>
