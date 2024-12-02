@@ -64,24 +64,29 @@
                   <a href="#programs" class="text-gray-900 hover:text-pink-500 transition">Programs</a>
                   <div class="h-4 border-r border-gray-300"></div>
                   <a href="#contact" class="text-gray-900 hover:text-pink-500 transition">Contact</a>
-                  <button class="bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700 transition">Donate</button>
+                  <a href="#partners" class="bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700 transition">Partner with us</a>
               </div>
-          </nav>
-      
+          </nav>      
           <!-- Mobile Menu -->
           <div class="md:hidden hidden" id="mobileMenu">
               <div class="px-4 py-3 space-y-4 bg-white">
-                  <a href="#home" class="block text-gray-900 hover:text-pink-500 mobile-link">Home</a>
+                  <a href="#home" class="block text-gray-900 hover:text-pink-500 mobile-link" onclick="closeMobileMenu()">Home</a>
                   <div class="border-b border-gray-300"></div>
-                  <a href="#about" class="block text-gray-900 hover:text-pink-500 mobile-link">About</a>
+                  <a href="#about" class="block text-gray-900 hover:text-pink-500 mobile-link" onclick="closeMobileMenu()">About</a>
                   <div class="border-b border-gray-300"></div>
-                  <a href="#programs" class="block text-gray-900 hover:text-pink-500 mobile-link">Programs</a>
+                  <a href="#programs" class="block text-gray-900 hover:text-pink-500 mobile-link" onclick="closeMobileMenu()">Programs</a>
                   <div class="border-b border-gray-300"></div>
-                  <a href="#contact" class="block text-gray-900 hover:text-pink-500 mobile-link">Contact</a>
-                  <button class="w-full bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700">Donate</button>
+                  <a href="#contact" class="block text-gray-900 hover:text-pink-500 mobile-link" onclick="closeMobileMenu()">Contact</a>
+                  <a href="#partners" class="w-full bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700 inline-block text-center" onclick="closeMobileMenu()">Partner with us</a>
               </div>
           </div>
       </header>
+      <script>
+          function closeMobileMenu() {
+              document.getElementById('mobileMenu').classList.add('hidden');
+              document.getElementById('menuBtn').classList.remove('open');
+          }
+      </script>
 
       <!-- Hero Section -->
       <section id="home" class="relative min-h-screen flex items-center justify-center pt-32 md:pt-0">
@@ -91,22 +96,57 @@
           </div>
           <div class="relative container mx-auto px-6">
               <div class="text-white max-w-3xl mx-auto text-center">
-                  <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
-                      Empowering Girls Through Education
+                  <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-fade-in">
+                      <span class="inline-block animate-slide-up">Empowering</span>
+                      <span class="inline-block animate-slide-down">Girls</span>
+                      <span class="inline-block animate-slide-up">Through</span>
+                      <span class="inline-block animate-pulse">Education</span>
                   </h1>
-                  <p class="text-lg md:text-2xl mb-8">
-                      Breaking barriers and creating opportunities for girls in Malawi to achieve their dreams through quality education.
-                  </p>
+                  <style>
+                      @keyframes fade-in {
+                          0% { opacity: 0; }
+                          100% { opacity: 1; }
+                      }
+                      @keyframes slide-up {
+                          0% { transform: translateY(100%); opacity: 0; }
+                          100% { transform: translateY(0); opacity: 1; }
+                      }
+                      @keyframes slide-down {
+                          0% { transform: translateY(-100%); opacity: 0; }
+                          100% { transform: translateY(0); opacity: 1; }
+                      }
+                      .animate-fade-in {
+                          animation: fade-in 2s ease-out infinite alternate;
+                      }
+                      .animate-slide-up {
+                          animation: slide-up 2s ease-out infinite alternate;
+                          display: inline-block;
+                          margin: 0 0.5rem;
+                      }
+                      .animate-slide-down {
+                          animation: slide-down 2s ease-out infinite alternate;
+                          display: inline-block;
+                          margin: 0 0.5rem;
+                          color: #EC4899;
+                      }
+                      .animate-pulse {
+                          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                          display: inline-block;
+                          margin: 0 0.5rem;
+                      }
+                      @keyframes pulse {
+                          0%, 100% { opacity: 1; transform: scale(1); }
+                          50% { opacity: .8; transform: scale(1.05); }
+                      }
+                  </style>
                   <div class="flex justify-center">
-                      <a href="#donate" class="bg-pink-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-700 transition text-center">
+                      <a href="#donate" class="bg-pink-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-700 transition text-center hover:scale-110 transform duration-300">
                           Donate Now
                       </a>
                   </div>
               </div>
           </div>
-      </section>
-
-      <!-- About Section -->
+      </section>      <!-- About Section -->
       <section id="about" class="py-20 bg-gray-50">
           <div class="container mx-auto px-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -407,9 +447,9 @@
                                 </div>
                             </div>
                         </section>
-                                                                        <!-- Donate -->
+
 <!-- Donate Section -->
-<section class="py-20 bg-gradient-to-r from-purple-900 via-pink-800 to-purple-900">
+<section id="donate" class="py-20 bg-gradient-to-r from-purple-900 via-pink-800 to-purple-900">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-5xl font-bold text-white mb-4">Make a Difference</h2>
@@ -470,7 +510,153 @@
             </div>
         </div>
     </div>
-</section>                                                <!-- Contact -->
+</section>
+                                                 <!-- Partners Section -->
+                                                 <section id="partners" class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                                                     <div class="container mx-auto px-6">
+                                                         <div class="text-center mb-12" data-aos="fade-up">
+                                                             <h2 class="text-4xl font-bold text-white mb-4">Partner With Us</h2>
+                                                             <div class="w-24 h-1 bg-pink-500 mx-auto mb-6"></div>
+                                                             <p class="text-lg text-gray-300">Join forces with us to create lasting impact</p>
+                                                         </div>
+                                                 
+                                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                                                             <!-- Current Partners -->
+                                                             <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-lg transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-right">
+                                                                 <div class="text-center">
+                                                                     <div class="w-20 h-20 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition duration-300">
+                                                                         <i class="fas fa-handshake text-3xl text-white"></i>
+                                                                     </div>
+                                                                     <h3 class="text-2xl font-bold text-white mb-4">Our Partners</h3>
+                                                                     <p class="text-gray-300 mb-6">We're proud to work with organizations that share our vision</p>
+                                                                     <div class="grid grid-cols-2 gap-4 mt-8">
+                                                                         <!-- Partner logos would go here -->
+                                                                         <div class="bg-white bg-opacity-20 rounded-lg p-4 transform hover:scale-105 transition duration-300">
+                                                                             <div class="h-20 flex items-center justify-center">
+                                                                                 <span class="text-white text-opacity-60">Partner 1</span>
+                                                                             </div>
+                                                                         </div>
+                                                                         <div class="bg-white bg-opacity-20 rounded-lg p-4 transform hover:scale-105 transition duration-300">
+                                                                             <div class="h-20 flex items-center justify-center">
+                                                                                 <span class="text-white text-opacity-60">Partner 2</span>
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                 
+                                                             <!-- Become a Partner Form -->
+                                                             <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-lg transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-left">
+                                                                 <div class="text-center mb-8">
+                                                                     <div class="w-20 h-20 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition duration-300">
+                                                                         <i class="fas fa-hands-helping text-3xl text-white"></i>
+                                                                     </div>
+                                                                     <h3 class="text-2xl font-bold text-white mb-4">Become a Partner</h3>
+                                                                     <p class="text-gray-300 mb-6">Let's create positive change together</p>
+                                                                 </div>
+                                                                 
+                                                                 <form action="https://formspree.io/f/your-formspree-endpoint" method="POST" class="space-y-6">
+                                                                     <div class="group">
+                                                                         <input type="text" name="organization" required class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-white placeholder-gray-400 transition duration-300" placeholder="Organization Name">
+                                                                     </div>
+                                                                     <div class="group">
+                                                                         <input type="email" name="email" required class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-white placeholder-gray-400 transition duration-300" placeholder="Email Address">
+                                                                     </div>
+                                                                     <div class="group">
+                                                                         <textarea name="message" required class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-white placeholder-gray-400 transition duration-300 h-32 resize-none" placeholder="Tell us about your organization and how you'd like to partner with us"></textarea>
+                                                                     </div>
+                                                                     <button type="submit" class="w-full group relative inline-flex items-center justify-center px-6 py-3 bg-pink-600 text-white rounded-lg overflow-hidden transform transition duration-300 ease-in-out hover:bg-pink-700">
+                                                                         <span class="relative flex items-center">
+                                                                             <i class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                                                             Submit Partnership Request
+                                                                         </span>
+                                                                     </button>
+                                                                 </form>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </section>
+                                                 
+                                                 <!-- Volunteer Section -->
+                                                 <section id="volunteer" class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                                                     <div class="container mx-auto px-6">
+                                                         <div class="text-center mb-12" data-aos="fade-up">
+                                                             <h2 class="text-4xl font-bold text-white mb-4">Become a Volunteer</h2>
+                                                             <div class="w-24 h-1 bg-pink-500 mx-auto mb-6"></div>
+                                                             <p class="text-lg text-gray-300">Join our team and make a difference in your community</p>
+                                                         </div>
+                                                 
+                                                         <div class="max-w-4xl mx-auto">
+                                                             <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-lg transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-up">
+                                                                 <div class="text-center">
+                                                                     <div class="w-20 h-20 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition duration-300">
+                                                                         <i class="fas fa-hands-helping text-3xl text-white"></i>
+                                                                     </div>
+                                                                     <h3 class="text-2xl font-bold text-white mb-4">Volunteer Opportunities</h3>
+                                                                     <p class="text-gray-300 mb-6">Share your skills and time to support our cause. Whether you're local or international, we welcome dedicated volunteers who want to make a positive impact.</p>
+                                                                     <a href="https://wa.me/265996632114?text=Hello%20Girls%20Can%20Malawi%2C%0A%0AI%20am%20interested%20in%20volunteering%20with%20your%20organization.%0A%0ALocation%3A%20%5BPlease%20specify%20your%20location%5D%0AAvailability%3A%20%5BPlease%20specify%20your%20availability%5D%0ASkills%3A%20%5BPlease%20mention%20relevant%20skills%5D%0A%0AI%20would%20appreciate%20more%20information%20about%20volunteer%20opportunities.%0A%0ABest%20regards" target="_blank" class="group relative inline-flex items-center px-6 py-3 bg-pink-600 text-white rounded-lg overflow-hidden transform transition duration-300 ease-in-out hover:bg-pink-700">
+                                                                         <span class="relative flex items-center">
+                                                                             <i class="fas fa-user-friends mr-2 group-hover:scale-110 transition-transform"></i>
+                                                                             Volunteer Now
+                                                                         </span>
+                                                                     </a>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </section>
+                                                 
+                                                                                                  <!-- Founder's Message Section -->
+                                                                                                  <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                                                                                                      <div class="container mx-auto px-6">
+                                                                                                          <div class="max-w-6xl mx-auto">
+                                                                                                              <div class="bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-lg shadow-2xl" data-aos="fade-up">
+                                                                                                                  <div class="grid md:grid-cols-2 gap-12 items-center">
+                                                                                                                      <!-- Founder's Image -->
+                                                                                                                      <div class="relative group" data-aos="fade-right">
+                                                                                                                          <div class="absolute inset-0 bg-pink-500 rounded-lg transform rotate-6 transition-transform group-hover:rotate-12"></div>
+                                                                                                                          <img src="assets/img/founder.jpg" alt="Founder" class="relative rounded-lg w-full h-[500px] object-cover object-center transform transition-transform group-hover:scale-105">
+                                                                                                                          <div class="absolute bottom-4 right-4 bg-pink-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                                                                                                                              <p class="font-semibold">Founder & CEO</p>
+                                                                                                                          </div>
+                                                                                                                      </div>
+                                                                                                  
+                                                                                                                      <!-- Message Content -->
+                                                                                                                      <div class="text-white space-y-6" data-aos="fade-left">
+                                                                                                                          <div class="flex items-center space-x-4 mb-6">
+                                                                                                                              <div class="w-16 h-1 bg-pink-500"></div>
+                                                                                                                              <h3 class="text-2xl font-bold text-pink-500">Message from our Founder</h3>
+                                                                                                                          </div>
+                                                                                                                          
+                                                                                                                          <blockquote class="text-lg text-gray-300 italic">
+                                                                                                                              "At Girls Can Malawi, we believe in the transformative power of education and opportunity. Our journey began with a simple yet powerful vision: to empower young girls in Malawi to reach their full potential. Every smile we see, every dream we help nurture, and every barrier we help break down reinforces our commitment to this cause."
+                                                                                                                          </blockquote>
+                                                                                                  
+                                                                                                                          <p class="text-gray-300">
+                                                                                                                              We started this organization with the firm belief that every girl deserves the chance to write her own story. Through education, mentorship, and community support, we're working to create a future where gender is never a barrier to success.
+                                                                                                                          </p>
+                                                                                                  
+                                                                                                                          <div class="pt-6">
+                                                                                                                              <h4 class="text-xl font-bold text-pink-400 mb-2">Dorothy Kaunda</h4>
+                                                                                                                              <p class="text-gray-400">Founder </p>
+                                                                                                                          </div>
+                                                                                                  
+                                                                                                                          <div class="flex space-x-4 pt-4">
+                                                                                                                              <a href="#" class="text-pink-400 hover:text-pink-300 transition-colors">
+                                                                                                                                  <i class="fab fa-linkedin text-2xl"></i>
+                                                                                                                              </a>
+                                                                                                                              <a href="#" class="text-pink-400 hover:text-pink-300 transition-colors">
+                                                                                                                                  <i class="fab fa-twitter text-2xl"></i>
+                                                                                                                              </a>
+                                                                                                                          </div>
+                                                                                                                      </div>
+                                                                                                                  </div>
+                                                                                                              </div>
+                                                                                                          </div>
+                                                                                                      </div>
+                                                                                                  </section>
+                                                                                                  
+                                                <!-- Contact -->
 <section id="contact" class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
                             <div class="container mx-auto px-6">
                                 <div class="text-center mb-12" data-aos="fade-up">
@@ -559,11 +745,10 @@
               <!-- Copyright -->
               <div class="mt-8 pt-8 border-t border-gray-700 text-center">
                   <p>© <span id="currentYear"></span> All Rights Reserved</p>
-                  <p class="mt-2">Developed by <a href="#" class="text-pink-500 hover:text-pink-400">jemusigraphics</a></p>
+                  <p class="mt-2">Developed by <a href="https://wa.me/2650990705194?text=Hello,%20I%20wanted%20to%20find%20out%20more%20about%20getting%20a%20website" class="text-pink-500 hover:text-pink-400">jemusi graphics</a></p>
               </div>
           </div>
       </footer>
-
       <script>
           // Mobile Menu Toggle
           const menuBtn = document.getElementById('menuBtn');
